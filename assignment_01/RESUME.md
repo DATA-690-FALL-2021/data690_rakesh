@@ -20,7 +20,7 @@ Rakesh Reddy Pulichinthala
 - Worked as a Associate software engineer on SAP-ABAP.
 #### Pacem:
 - Worked as a senior software engineer in QA team.
-## projects:
+## project:
 1. Worked on digital application to provide educational content to the government schools.
 ## **Hobbies:**
 - Watching sports and playing cricket, badminton & table tennis.
