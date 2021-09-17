@@ -1,3 +1,2 @@
 # data690_rakesh
-## assignment1
-### assignment2
+## This is for Data 690 Fall 2021 with Dr.wang
