@@ -1,0 +1,1347 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "name": "Assignment_05.ipynb",
+      "provenance": [],
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/rakeshp1/data690_rakesh/blob/main/Assignment_05.ipynb/Assignment_05\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "weWYl-85ALzp"
+      },
+      "source": [
+        "import pandas as pd \n",
+        "import numpy as np\n",
+        "import matplotlib.pyplot as plt"
+      ],
+      "execution_count": 1,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 374
+        },
+        "id": "Z4yfBNArA8fM",
+        "outputId": "d43676d1-a896-41fe-c236-8ba7287394a9"
+      },
+      "source": [
+        "df = pd.read_csv('MERGED2017_18_PP.csv')"
+      ],
+      "execution_count": 2,
+      "outputs": [
+        {
+          "output_type": "error",
+          "ename": "FileNotFoundError",
+          "evalue": "ignored",
+          "traceback": [
+            "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+            "\u001b[0;31mFileNotFoundError\u001b[0m                         Traceback (most recent call last)",
+            "\u001b[0;32m<ipython-input-2-f061c219c2cb>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m()\u001b[0m\n\u001b[0;32m----> 1\u001b[0;31m \u001b[0mdf\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mpd\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mread_csv\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m'MERGED2017_18_PP.csv'\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m",
+            "\u001b[0;32m/usr/local/lib/python3.7/dist-packages/pandas/io/parsers.py\u001b[0m in \u001b[0;36mread_csv\u001b[0;34m(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, squeeze, prefix, mangle_dupe_cols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, dialect, error_bad_lines, warn_bad_lines, delim_whitespace, low_memory, memory_map, float_precision)\u001b[0m\n\u001b[1;32m    686\u001b[0m     )\n\u001b[1;32m    687\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m--> 688\u001b[0;31m     \u001b[0;32mreturn\u001b[0m \u001b[0m_read\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mfilepath_or_buffer\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mkwds\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m    689\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    690\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;32m/usr/local/lib/python3.7/dist-packages/pandas/io/parsers.py\u001b[0m in \u001b[0;36m_read\u001b[0;34m(filepath_or_buffer, kwds)\u001b[0m\n\u001b[1;32m    452\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    453\u001b[0m     \u001b[0;31m# Create the parser.\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m--> 454\u001b[0;31m     \u001b[0mparser\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mTextFileReader\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mfp_or_buf\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m**\u001b[0m\u001b[0mkwds\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m    455\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    456\u001b[0m     \u001b[0;32mif\u001b[0m \u001b[0mchunksize\u001b[0m \u001b[0;32mor\u001b[0m \u001b[0miterator\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;32m/usr/local/lib/python3.7/dist-packages/pandas/io/parsers.py\u001b[0m in \u001b[0;36m__init__\u001b[0;34m(self, f, engine, **kwds)\u001b[0m\n\u001b[1;32m    946\u001b[0m             \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0moptions\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;34m\"has_index_names\"\u001b[0m\u001b[0;34m]\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mkwds\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;34m\"has_index_names\"\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    947\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m--> 948\u001b[0;31m         \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_make_engine\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mengine\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m    949\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m    950\u001b[0m     \u001b[0;32mdef\u001b[0m \u001b[0mclose\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mself\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;32m/usr/local/lib/python3.7/dist-packages/pandas/io/parsers.py\u001b[0m in \u001b[0;36m_make_engine\u001b[0;34m(self, engine)\u001b[0m\n\u001b[1;32m   1178\u001b[0m     \u001b[0;32mdef\u001b[0m \u001b[0m_make_engine\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mself\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mengine\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0;34m\"c\"\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   1179\u001b[0m         \u001b[0;32mif\u001b[0m \u001b[0mengine\u001b[0m \u001b[0;34m==\u001b[0m \u001b[0;34m\"c\"\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m-> 1180\u001b[0;31m             \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_engine\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mCParserWrapper\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mf\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m**\u001b[0m\u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0moptions\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m   1181\u001b[0m         \u001b[0;32melse\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   1182\u001b[0m             \u001b[0;32mif\u001b[0m \u001b[0mengine\u001b[0m \u001b[0;34m==\u001b[0m \u001b[0;34m\"python\"\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;32m/usr/local/lib/python3.7/dist-packages/pandas/io/parsers.py\u001b[0m in \u001b[0;36m__init__\u001b[0;34m(self, src, **kwds)\u001b[0m\n\u001b[1;32m   2008\u001b[0m         \u001b[0mkwds\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;34m\"usecols\"\u001b[0m\u001b[0;34m]\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0musecols\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   2009\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m-> 2010\u001b[0;31m         \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_reader\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mparsers\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mTextReader\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0msrc\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m**\u001b[0m\u001b[0mkwds\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m   2011\u001b[0m         \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0munnamed_cols\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mself\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0m_reader\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0munnamed_cols\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m   2012\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;32mpandas/_libs/parsers.pyx\u001b[0m in \u001b[0;36mpandas._libs.parsers.TextReader.__cinit__\u001b[0;34m()\u001b[0m\n",
+            "\u001b[0;32mpandas/_libs/parsers.pyx\u001b[0m in \u001b[0;36mpandas._libs.parsers.TextReader._setup_parser_source\u001b[0;34m()\u001b[0m\n",
+            "\u001b[0;31mFileNotFoundError\u001b[0m: [Errno 2] No such file or directory: 'MERGED2017_18_PP.csv'"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 163
+        },
+        "id": "Js141EEyBEIP",
+        "outputId": "1a1f7908-fc85-447f-d392-5fc7195db79f"
+      },
+      "source": [
+        "df.head()"
+      ],
+      "execution_count": 3,
+      "outputs": [
+        {
+          "output_type": "error",
+          "ename": "NameError",
+          "evalue": "ignored",
+          "traceback": [
+            "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+            "\u001b[0;31mNameError\u001b[0m                                 Traceback (most recent call last)",
+            "\u001b[0;32m<ipython-input-3-c42a15b2c7cf>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m()\u001b[0m\n\u001b[0;32m----> 1\u001b[0;31m \u001b[0mdf\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mhead\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m",
+            "\u001b[0;31mNameError\u001b[0m: name 'df' is not defined"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "mMyCzn0bBGSo",
+        "outputId": "5d4d5740-9d14-4421-dbdd-140ffa2e0469"
+      },
+      "source": [
+        "# 1 row / college count \n",
+        "# 2 variables or columns count\n",
+        "df.info\n"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "<bound method DataFrame.info of         UNITID    OPEID  ...  FTFTPCTFLOAN_POOLED_SUPP SCUGFFN_POOLED\n",
+              "0       100654   100200  ...                       NaN            NaN\n",
+              "1       100663   105200  ...                       NaN            NaN\n",
+              "2       100690  2503400  ...                       NaN            NaN\n",
+              "3       100706   105500  ...                       NaN            NaN\n",
+              "4       100724   100500  ...                       NaN            NaN\n",
+              "...        ...      ...  ...                       ...            ...\n",
+              "7107  48312404   108163  ...                       NaN            NaN\n",
+              "7108  48387801  4223701  ...                       NaN            NaN\n",
+              "7109  48400201  4228101  ...                       NaN            NaN\n",
+              "7110  48778201  4221501  ...                       NaN            NaN\n",
+              "7111  49005401  4182601  ...                       NaN            NaN\n",
+              "\n",
+              "[7112 rows x 1986 columns]>"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 11
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "ltbwcb35BPN9",
+        "outputId": "39ee18a9-1d10-4558-b6ab-259f6c0f4637"
+      },
+      "source": [
+        "#first 5 colleges\n",
+        "colleges = df['INSTNM']\n",
+        "colleges.head(5)"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "0               Alabama A & M University\n",
+              "1    University of Alabama at Birmingham\n",
+              "2                     Amridge University\n",
+              "3    University of Alabama in Huntsville\n",
+              "4               Alabama State University\n",
+              "Name: INSTNM, dtype: object"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 13
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "W6dPnVHoClXA",
+        "outputId": "785598b7-eac8-4f15-b809-56ec487c6ac9"
+      },
+      "source": [
+        "#last 5 colleges\n",
+        "colleges.tail(5)"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "7107                     Arizona State University at Yuma\n",
+              "7108    Bay Area Medical Academy - San Jose Satellite ...\n",
+              "7109             High Desert Medical College - Bakerfield\n",
+              "7110                                         BCI - Malden\n",
+              "7111                 HCI College - Fort Lauderdale Campus\n",
+              "Name: INSTNM, dtype: object"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 14
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "J9GzfQSnCt-j",
+        "outputId": "a7967c12-8c68-4baf-efb1-60ae2069864b"
+      },
+      "source": [
+        "# 5 colleges in random\n",
+        "colleges.sample(5)"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "1896    Paul Mitchell the School-Missouri Columbia\n",
+              "6862                    Columbia College - Lemoore\n",
+              "1243                 Flint Hills Technical College\n",
+              "3835                   Cardinal Stritch University\n",
+              "1007                        McHenry County College\n",
+              "Name: INSTNM, dtype: object"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 16
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 417
+        },
+        "id": "owTiJx60Cyvp",
+        "outputId": "f7f0603c-5ed4-46d1-8021-ff765a96e25d"
+      },
+      "source": [
+        "smaller_df = df[['UNITID', 'INSTNM', 'CITY',  'STABBR', 'ZIP', 'ADM_RATE',  'UGDS', 'TUITIONFEE_IN', 'MN_EARN_WNE_P10' ]]\n",
+        "smaller_df.head()"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/html": [
+              "<div>\n",
+              "<style scoped>\n",
+              "    .dataframe tbody tr th:only-of-type {\n",
+              "        vertical-align: middle;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe tbody tr th {\n",
+              "        vertical-align: top;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe thead th {\n",
+              "        text-align: right;\n",
+              "    }\n",
+              "</style>\n",
+              "<table border=\"1\" class=\"dataframe\">\n",
+              "  <thead>\n",
+              "    <tr style=\"text-align: right;\">\n",
+              "      <th></th>\n",
+              "      <th>UNITID</th>\n",
+              "      <th>INSTNM</th>\n",
+              "      <th>CITY</th>\n",
+              "      <th>STABBR</th>\n",
+              "      <th>ZIP</th>\n",
+              "      <th>ADM_RATE</th>\n",
+              "      <th>UGDS</th>\n",
+              "      <th>TUITIONFEE_IN</th>\n",
+              "      <th>MN_EARN_WNE_P10</th>\n",
+              "    </tr>\n",
+              "  </thead>\n",
+              "  <tbody>\n",
+              "    <tr>\n",
+              "      <th>0</th>\n",
+              "      <td>100654</td>\n",
+              "      <td>Alabama A &amp; M University</td>\n",
+              "      <td>Normal</td>\n",
+              "      <td>AL</td>\n",
+              "      <td>35762</td>\n",
+              "      <td>0.9027</td>\n",
+              "      <td>4824.0</td>\n",
+              "      <td>9857.0</td>\n",
+              "      <td>NaN</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>1</th>\n",
+              "      <td>100663</td>\n",
+              "      <td>University of Alabama at Birmingham</td>\n",
+              "      <td>Birmingham</td>\n",
+              "      <td>AL</td>\n",
+              "      <td>35294-0110</td>\n",
+              "      <td>0.9181</td>\n",
+              "      <td>12866.0</td>\n",
+              "      <td>8328.0</td>\n",
+              "      <td>NaN</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>2</th>\n",
+              "      <td>100690</td>\n",
+              "      <td>Amridge University</td>\n",
+              "      <td>Montgomery</td>\n",
+              "      <td>AL</td>\n",
+              "      <td>36117-3553</td>\n",
+              "      <td>NaN</td>\n",
+              "      <td>318.0</td>\n",
+              "      <td>6900.0</td>\n",
+              "      <td>NaN</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>3</th>\n",
+              "      <td>100706</td>\n",
+              "      <td>University of Alabama in Huntsville</td>\n",
+              "      <td>Huntsville</td>\n",
+              "      <td>AL</td>\n",
+              "      <td>35899</td>\n",
+              "      <td>0.8123</td>\n",
+              "      <td>6917.0</td>\n",
+              "      <td>10280.0</td>\n",
+              "      <td>NaN</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>4</th>\n",
+              "      <td>100724</td>\n",
+              "      <td>Alabama State University</td>\n",
+              "      <td>Montgomery</td>\n",
+              "      <td>AL</td>\n",
+              "      <td>36104-0271</td>\n",
+              "      <td>0.9787</td>\n",
+              "      <td>4189.0</td>\n",
+              "      <td>11068.0</td>\n",
+              "      <td>NaN</td>\n",
+              "    </tr>\n",
+              "  </tbody>\n",
+              "</table>\n",
+              "</div>"
+            ],
+            "text/plain": [
+              "   UNITID                               INSTNM  ... TUITIONFEE_IN MN_EARN_WNE_P10\n",
+              "0  100654             Alabama A & M University  ...        9857.0             NaN\n",
+              "1  100663  University of Alabama at Birmingham  ...        8328.0             NaN\n",
+              "2  100690                   Amridge University  ...        6900.0             NaN\n",
+              "3  100706  University of Alabama in Huntsville  ...       10280.0             NaN\n",
+              "4  100724             Alabama State University  ...       11068.0             NaN\n",
+              "\n",
+              "[5 rows x 9 columns]"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 19
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "MnERwcZVFmD4"
+      },
+      "source": [
+        "\n",
+        "#Label Description\n",
+        "\n",
+        "\n",
+        " \n",
+        " \n",
+        "  id:\n",
+        "\n",
+        "    source: UNITID\n",
+        "\n",
+        "    description: Unit ID for institution\n",
+        "\n",
+        "  school.name:\n",
+        "\n",
+        "    source: INSTNM\n",
+        "\n",
+        "    description: Institution name\n",
+        "\n",
+        "  school.city:\n",
+        "\n",
+        "    source: CITY\n",
+        "\n",
+        "    description: City\n",
+        "\n",
+        "  school.state:\n",
+        "\n",
+        "    source: STABBR\n",
+        "\n",
+        "    description: State postcode\n",
+        "\n",
+        "  school.zip:\n",
+        "\n",
+        "    source: ZIP\n",
+        "\n",
+        "    description: ZIP code\n",
+        "\n",
+        "\n",
+        "  admissions.admission_rate.overall:\n",
+        "\n",
+        "    source: ADM_RATE\n",
+        "\n",
+        "    description: Admission rate\n",
+        "\n",
+        "  student.size:\n",
+        "\n",
+        "    source: UGDS\n",
+        "\n",
+        "    description: Enrollment of undergraduate certificate/degree-seeking students\n",
+        "\n",
+        "  cost.tuition.in_state:\n",
+        "\n",
+        "    source: TUITIONFEE_IN\n",
+        "\n",
+        "    description: In-state tuition and fees\n",
+        "\n",
+        "\n",
+        "earnings.10_yrs_after_entryworking_not_enrolled.mean_earnings:\n",
+        "\n",
+        "    source: MN_EARN_WNE_P10\n",
+        "\n",
+        "    description: Mean earnings of students working and not enrolled 10 years after\n"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 712
+        },
+        "id": "rXc32vnDE3fB",
+        "outputId": "63842eff-bda9-4b77-c7c9-cc6a336a2fa5"
+      },
+      "source": [
+        "# first 10 collges from small dataframe \n",
+        "smaller_df.head(10)"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/html": [
+              "<div>\n",
+              "<style scoped>\n",
+              "    .dataframe tbody tr th:only-of-type {\n",
+              "        vertical-align: middle;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe tbody tr th {\n",
+              "        vertical-align: top;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe thead th {\n",
+              "        text-align: right;\n",
+              "    }\n",
+              "</style>\n",
+              "<table border=\"1\" class=\"dataframe\">\n",
+              "  <thead>\n",
+              "    <tr style=\"text-align: right;\">\n",
+              "      <th></th>\n",
+              "      <th>UNITID</th>\n",
+              "      <th>INSTNM</th>\n",
+              "      <th>CITY</th>\n",
+              "      <th>STABBR</th>\n",
+              "      <th>ZIP</th>\n",
+              "      <th>ADM_RATE</th>\n",
+              "      <th>UGDS</th>\n",
+              "      <th>TUITIONFEE_IN</th>\n",
+              "      <th>MN_EARN_WNE_P10</th>\n",
+              "    </tr>\n",
+              "  </thead>\n",
+              "  <tbody>\n",
+              "    <tr>\n",
+              "      <th>0</th>\n",
+              "      <td>100654</td>\n",
+              "      <td>Alabama A &amp; M University</td>\n",
+              "      <td>Normal</td>\n",
+              "      <td>AL</td>\n",
+              "      <td>35762</td>\n",
+              "      <td>0.9027</td>\n",
+              "      <td>4824.0</td>\n",
+              "      <td>9857.0</td>\n",
+              "      <td>NaN</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>1</th>\n",
+              "      <td>100663</td>\n",
+              "      <td>University of Alabama at Birmingham</td>\n",
+              "      <td>Birmingham</td>\n",
+              "      <td>AL</td>\n",
+              "      <td>35294-0110</td>\n",
+              "      <td>0.9181</td>\n",
+              "      <td>12866.0</td>\n",
+              "      <td>8328.0</td>\n",
+              "      <td>NaN</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>2</th>\n",
+              "      <td>100690</td>\n",
+              "      <td>Amridge University</td>\n",
+              "      <td>Montgomery</td>\n",
+              "      <td>AL</td>\n",
+              "      <td>36117-3553</td>\n",
+              "      <td>NaN</td>\n",
+              "      <td>318.0</td>\n",
+              "      <td>6900.0</td>\n",
+              "      <td>NaN</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>3</th>\n",
+              "      <td>100706</td>\n",
+              "      <td>University of Alabama in Huntsville</td>\n",
+              "      <td>Huntsville</td>\n",
+              "      <td>AL</td>\n",
+              "      <td>35899</td>\n",
+              "      <td>0.8123</td>\n",
+              "      <td>6917.0</td>\n",
+              "      <td>10280.0</td>\n",
+              "      <td>NaN</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>4</th>\n",
+              "      <td>100724</td>\n",
+              "      <td>Alabama State University</td>\n",
+              "      <td>Montgomery</td>\n",
+              "      <td>AL</td>\n",
+              "      <td>36104-0271</td>\n",
+              "      <td>0.9787</td>\n",
+              "      <td>4189.0</td>\n",
+              "      <td>11068.0</td>\n",
+              "      <td>NaN</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>5</th>\n",
+              "      <td>100751</td>\n",
+              "      <td>The University of Alabama</td>\n",
+              "      <td>Tuscaloosa</td>\n",
+              "      <td>AL</td>\n",
+              "      <td>35487-0100</td>\n",
+              "      <td>0.5330</td>\n",
+              "      <td>32387.0</td>\n",
+              "      <td>10780.0</td>\n",
+              "      <td>NaN</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>6</th>\n",
+              "      <td>100760</td>\n",
+              "      <td>Central Alabama Community College</td>\n",
+              "      <td>Alexander City</td>\n",
+              "      <td>AL</td>\n",
+              "      <td>35010</td>\n",
+              "      <td>NaN</td>\n",
+              "      <td>1404.0</td>\n",
+              "      <td>4440.0</td>\n",
+              "      <td>NaN</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>7</th>\n",
+              "      <td>100812</td>\n",
+              "      <td>Athens State University</td>\n",
+              "      <td>Athens</td>\n",
+              "      <td>AL</td>\n",
+              "      <td>35611</td>\n",
+              "      <td>NaN</td>\n",
+              "      <td>2801.0</td>\n",
+              "      <td>NaN</td>\n",
+              "      <td>NaN</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>8</th>\n",
+              "      <td>100830</td>\n",
+              "      <td>Auburn University at Montgomery</td>\n",
+              "      <td>Montgomery</td>\n",
+              "      <td>AL</td>\n",
+              "      <td>36117-3596</td>\n",
+              "      <td>0.8240</td>\n",
+              "      <td>4211.0</td>\n",
+              "      <td>8020.0</td>\n",
+              "      <td>NaN</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>9</th>\n",
+              "      <td>100858</td>\n",
+              "      <td>Auburn University</td>\n",
+              "      <td>Auburn</td>\n",
+              "      <td>AL</td>\n",
+              "      <td>36849</td>\n",
+              "      <td>0.8393</td>\n",
+              "      <td>23391.0</td>\n",
+              "      <td>10968.0</td>\n",
+              "      <td>NaN</td>\n",
+              "    </tr>\n",
+              "  </tbody>\n",
+              "</table>\n",
+              "</div>"
+            ],
+            "text/plain": [
+              "   UNITID                               INSTNM  ... TUITIONFEE_IN MN_EARN_WNE_P10\n",
+              "0  100654             Alabama A & M University  ...        9857.0             NaN\n",
+              "1  100663  University of Alabama at Birmingham  ...        8328.0             NaN\n",
+              "2  100690                   Amridge University  ...        6900.0             NaN\n",
+              "3  100706  University of Alabama in Huntsville  ...       10280.0             NaN\n",
+              "4  100724             Alabama State University  ...       11068.0             NaN\n",
+              "5  100751            The University of Alabama  ...       10780.0             NaN\n",
+              "6  100760    Central Alabama Community College  ...        4440.0             NaN\n",
+              "7  100812              Athens State University  ...           NaN             NaN\n",
+              "8  100830      Auburn University at Montgomery  ...        8020.0             NaN\n",
+              "9  100858                    Auburn University  ...       10968.0             NaN\n",
+              "\n",
+              "[10 rows x 9 columns]"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 20
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 990
+        },
+        "id": "AYQNyLhuH9Hq",
+        "outputId": "0b4034b3-dbdd-4560-cd1a-d44e4c395ddf"
+      },
+      "source": [
+        "# last 10 collges from small dataframe \n",
+        "smaller_df.tail(10)"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/html": [
+              "<div>\n",
+              "<style scoped>\n",
+              "    .dataframe tbody tr th:only-of-type {\n",
+              "        vertical-align: middle;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe tbody tr th {\n",
+              "        vertical-align: top;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe thead th {\n",
+              "        text-align: right;\n",
+              "    }\n",
+              "</style>\n",
+              "<table border=\"1\" class=\"dataframe\">\n",
+              "  <thead>\n",
+              "    <tr style=\"text-align: right;\">\n",
+              "      <th></th>\n",
+              "      <th>UNITID</th>\n",
+              "      <th>INSTNM</th>\n",
+              "      <th>CITY</th>\n",
+              "      <th>STABBR</th>\n",
+              "      <th>ZIP</th>\n",
+              "      <th>ADM_RATE</th>\n",
+              "      <th>UGDS</th>\n",
+              "      <th>TUITIONFEE_IN</th>\n",
+              "      <th>MN_EARN_WNE_P10</th>\n",
+              "    </tr>\n",
+              "  </thead>\n",
+              "  <tbody>\n",
+              "    <tr>\n",
+              "      <th>7102</th>\n",
+              "      <td>48154401</td>\n",
+              "      <td>National Personal Training Institute of Cleveland</td>\n",
+              "      <td>Highland Heights</td>\n",
+              "      <td>OH</td>\n",
+              "      <td>44143</td>\n",
+              "      <td>NaN</td>\n",
+              "      <td>NaN</td>\n",
+              "      <td>NaN</td>\n",
+              "      <td>NaN</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>7103</th>\n",
+              "      <td>48305401</td>\n",
+              "      <td>Barber School of Pittsburgh - Ambridge</td>\n",
+              "      <td>Ambridge</td>\n",
+              "      <td>PA</td>\n",
+              "      <td>150030000</td>\n",
+              "      <td>NaN</td>\n",
+              "      <td>NaN</td>\n",
+              "      <td>NaN</td>\n",
+              "      <td>NaN</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>7104</th>\n",
+              "      <td>48312401</td>\n",
+              "      <td>Arizona State University at Tucson</td>\n",
+              "      <td>Tucson</td>\n",
+              "      <td>AZ</td>\n",
+              "      <td>857454284</td>\n",
+              "      <td>NaN</td>\n",
+              "      <td>NaN</td>\n",
+              "      <td>NaN</td>\n",
+              "      <td>NaN</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>7105</th>\n",
+              "      <td>48312402</td>\n",
+              "      <td>Arizona State University - ASU Colleges at Lak...</td>\n",
+              "      <td>Lake Havasu City</td>\n",
+              "      <td>AZ</td>\n",
+              "      <td>864036877</td>\n",
+              "      <td>NaN</td>\n",
+              "      <td>NaN</td>\n",
+              "      <td>6904.0</td>\n",
+              "      <td>NaN</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>7106</th>\n",
+              "      <td>48312403</td>\n",
+              "      <td>Arizona State University at The Gila Valley</td>\n",
+              "      <td>Thatcher</td>\n",
+              "      <td>AZ</td>\n",
+              "      <td>855525545</td>\n",
+              "      <td>NaN</td>\n",
+              "      <td>NaN</td>\n",
+              "      <td>NaN</td>\n",
+              "      <td>NaN</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>7107</th>\n",
+              "      <td>48312404</td>\n",
+              "      <td>Arizona State University at Yuma</td>\n",
+              "      <td>Yuma</td>\n",
+              "      <td>AZ</td>\n",
+              "      <td>853656900</td>\n",
+              "      <td>NaN</td>\n",
+              "      <td>NaN</td>\n",
+              "      <td>NaN</td>\n",
+              "      <td>NaN</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>7108</th>\n",
+              "      <td>48387801</td>\n",
+              "      <td>Bay Area Medical Academy - San Jose Satellite ...</td>\n",
+              "      <td>San Jose</td>\n",
+              "      <td>CA</td>\n",
+              "      <td>95113</td>\n",
+              "      <td>NaN</td>\n",
+              "      <td>NaN</td>\n",
+              "      <td>NaN</td>\n",
+              "      <td>NaN</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>7109</th>\n",
+              "      <td>48400201</td>\n",
+              "      <td>High Desert Medical College - Bakerfield</td>\n",
+              "      <td>Bakersfield</td>\n",
+              "      <td>CA</td>\n",
+              "      <td>93301</td>\n",
+              "      <td>NaN</td>\n",
+              "      <td>NaN</td>\n",
+              "      <td>NaN</td>\n",
+              "      <td>NaN</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>7110</th>\n",
+              "      <td>48778201</td>\n",
+              "      <td>BCI - Malden</td>\n",
+              "      <td>Malden</td>\n",
+              "      <td>MA</td>\n",
+              "      <td>021480000</td>\n",
+              "      <td>NaN</td>\n",
+              "      <td>NaN</td>\n",
+              "      <td>NaN</td>\n",
+              "      <td>NaN</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>7111</th>\n",
+              "      <td>49005401</td>\n",
+              "      <td>HCI College - Fort Lauderdale Campus</td>\n",
+              "      <td>Fort Lauderdale</td>\n",
+              "      <td>FL</td>\n",
+              "      <td>33309</td>\n",
+              "      <td>NaN</td>\n",
+              "      <td>NaN</td>\n",
+              "      <td>22575.0</td>\n",
+              "      <td>NaN</td>\n",
+              "    </tr>\n",
+              "  </tbody>\n",
+              "</table>\n",
+              "</div>"
+            ],
+            "text/plain": [
+              "        UNITID  ... MN_EARN_WNE_P10\n",
+              "7102  48154401  ...             NaN\n",
+              "7103  48305401  ...             NaN\n",
+              "7104  48312401  ...             NaN\n",
+              "7105  48312402  ...             NaN\n",
+              "7106  48312403  ...             NaN\n",
+              "7107  48312404  ...             NaN\n",
+              "7108  48387801  ...             NaN\n",
+              "7109  48400201  ...             NaN\n",
+              "7110  48778201  ...             NaN\n",
+              "7111  49005401  ...             NaN\n",
+              "\n",
+              "[10 rows x 9 columns]"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 21
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 800
+        },
+        "id": "6AuChxnNIBZA",
+        "outputId": "deb586d3-9ab0-4aaa-d463-f2e74adb2881"
+      },
+      "source": [
+        "#random 10 colleges\n",
+        "smaller_df.sample(10)"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/html": [
+              "<div>\n",
+              "<style scoped>\n",
+              "    .dataframe tbody tr th:only-of-type {\n",
+              "        vertical-align: middle;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe tbody tr th {\n",
+              "        vertical-align: top;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe thead th {\n",
+              "        text-align: right;\n",
+              "    }\n",
+              "</style>\n",
+              "<table border=\"1\" class=\"dataframe\">\n",
+              "  <thead>\n",
+              "    <tr style=\"text-align: right;\">\n",
+              "      <th></th>\n",
+              "      <th>UNITID</th>\n",
+              "      <th>INSTNM</th>\n",
+              "      <th>CITY</th>\n",
+              "      <th>STABBR</th>\n",
+              "      <th>ZIP</th>\n",
+              "      <th>ADM_RATE</th>\n",
+              "      <th>UGDS</th>\n",
+              "      <th>TUITIONFEE_IN</th>\n",
+              "      <th>MN_EARN_WNE_P10</th>\n",
+              "    </tr>\n",
+              "  </thead>\n",
+              "  <tbody>\n",
+              "    <tr>\n",
+              "      <th>4115</th>\n",
+              "      <td>364946</td>\n",
+              "      <td>Caddo Kiowa Technology Center</td>\n",
+              "      <td>Fort Cobb</td>\n",
+              "      <td>OK</td>\n",
+              "      <td>73038-0190</td>\n",
+              "      <td>NaN</td>\n",
+              "      <td>416.0</td>\n",
+              "      <td>NaN</td>\n",
+              "      <td>NaN</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>5377</th>\n",
+              "      <td>451413</td>\n",
+              "      <td>Center for Allied Health Education</td>\n",
+              "      <td>Brooklyn</td>\n",
+              "      <td>NY</td>\n",
+              "      <td>11229</td>\n",
+              "      <td>NaN</td>\n",
+              "      <td>393.0</td>\n",
+              "      <td>21591.0</td>\n",
+              "      <td>NaN</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>4664</th>\n",
+              "      <td>428170</td>\n",
+              "      <td>Southeastern College-West Palm Beach</td>\n",
+              "      <td>West Palm Beach</td>\n",
+              "      <td>FL</td>\n",
+              "      <td>33409</td>\n",
+              "      <td>NaN</td>\n",
+              "      <td>499.0</td>\n",
+              "      <td>19024.0</td>\n",
+              "      <td>NaN</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>224</th>\n",
+              "      <td>110574</td>\n",
+              "      <td>California State University-East Bay</td>\n",
+              "      <td>Hayward</td>\n",
+              "      <td>CA</td>\n",
+              "      <td>94542</td>\n",
+              "      <td>0.7405</td>\n",
+              "      <td>13433.0</td>\n",
+              "      <td>6834.0</td>\n",
+              "      <td>NaN</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>3260</th>\n",
+              "      <td>218894</td>\n",
+              "      <td>Trident Technical College</td>\n",
+              "      <td>Charleston</td>\n",
+              "      <td>SC</td>\n",
+              "      <td>29423-8067</td>\n",
+              "      <td>NaN</td>\n",
+              "      <td>10905.0</td>\n",
+              "      <td>4394.0</td>\n",
+              "      <td>NaN</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>1889</th>\n",
+              "      <td>177472</td>\n",
+              "      <td>Ozarks Technical Community College</td>\n",
+              "      <td>Springfield</td>\n",
+              "      <td>MO</td>\n",
+              "      <td>65802</td>\n",
+              "      <td>NaN</td>\n",
+              "      <td>10618.0</td>\n",
+              "      <td>3192.0</td>\n",
+              "      <td>NaN</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>5865</th>\n",
+              "      <td>461795</td>\n",
+              "      <td>North American University</td>\n",
+              "      <td>Stafford</td>\n",
+              "      <td>TX</td>\n",
+              "      <td>77477-0000</td>\n",
+              "      <td>NaN</td>\n",
+              "      <td>333.0</td>\n",
+              "      <td>9900.0</td>\n",
+              "      <td>NaN</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>4587</th>\n",
+              "      <td>419183</td>\n",
+              "      <td>Central California School of Continuing Education</td>\n",
+              "      <td>San Luis Obispo</td>\n",
+              "      <td>CA</td>\n",
+              "      <td>93401</td>\n",
+              "      <td>NaN</td>\n",
+              "      <td>267.0</td>\n",
+              "      <td>9895.0</td>\n",
+              "      <td>NaN</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>5057</th>\n",
+              "      <td>444510</td>\n",
+              "      <td>CES College</td>\n",
+              "      <td>Burbank</td>\n",
+              "      <td>CA</td>\n",
+              "      <td>91502-2750</td>\n",
+              "      <td>NaN</td>\n",
+              "      <td>134.0</td>\n",
+              "      <td>NaN</td>\n",
+              "      <td>NaN</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>3501</th>\n",
+              "      <td>227331</td>\n",
+              "      <td>Our Lady of the Lake University</td>\n",
+              "      <td>San Antonio</td>\n",
+              "      <td>TX</td>\n",
+              "      <td>78207-4689</td>\n",
+              "      <td>0.9130</td>\n",
+              "      <td>1320.0</td>\n",
+              "      <td>28192.0</td>\n",
+              "      <td>NaN</td>\n",
+              "    </tr>\n",
+              "  </tbody>\n",
+              "</table>\n",
+              "</div>"
+            ],
+            "text/plain": [
+              "      UNITID  ... MN_EARN_WNE_P10\n",
+              "4115  364946  ...             NaN\n",
+              "5377  451413  ...             NaN\n",
+              "4664  428170  ...             NaN\n",
+              "224   110574  ...             NaN\n",
+              "3260  218894  ...             NaN\n",
+              "1889  177472  ...             NaN\n",
+              "5865  461795  ...             NaN\n",
+              "4587  419183  ...             NaN\n",
+              "5057  444510  ...             NaN\n",
+              "3501  227331  ...             NaN\n",
+              "\n",
+              "[10 rows x 9 columns]"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 22
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 170
+        },
+        "id": "R3KDrMm3IlQj",
+        "outputId": "b99c8902-7f40-429a-d9f6-2e4ca805c2e6"
+      },
+      "source": [
+        "smaller_df[smaller_df.INSTNM.str.contains(\"University of Maryland-Baltimore County\")]"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/html": [
+              "<div>\n",
+              "<style scoped>\n",
+              "    .dataframe tbody tr th:only-of-type {\n",
+              "        vertical-align: middle;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe tbody tr th {\n",
+              "        vertical-align: top;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe thead th {\n",
+              "        text-align: right;\n",
+              "    }\n",
+              "</style>\n",
+              "<table border=\"1\" class=\"dataframe\">\n",
+              "  <thead>\n",
+              "    <tr style=\"text-align: right;\">\n",
+              "      <th></th>\n",
+              "      <th>UNITID</th>\n",
+              "      <th>INSTNM</th>\n",
+              "      <th>CITY</th>\n",
+              "      <th>STABBR</th>\n",
+              "      <th>ZIP</th>\n",
+              "      <th>ADM_RATE</th>\n",
+              "      <th>UGDS</th>\n",
+              "      <th>TUITIONFEE_IN</th>\n",
+              "      <th>MN_EARN_WNE_P10</th>\n",
+              "    </tr>\n",
+              "  </thead>\n",
+              "  <tbody>\n",
+              "    <tr>\n",
+              "      <th>1478</th>\n",
+              "      <td>163268</td>\n",
+              "      <td>University of Maryland-Baltimore County</td>\n",
+              "      <td>Baltimore</td>\n",
+              "      <td>MD</td>\n",
+              "      <td>21250</td>\n",
+              "      <td>0.6021</td>\n",
+              "      <td>11130.0</td>\n",
+              "      <td>11518.0</td>\n",
+              "      <td>NaN</td>\n",
+              "    </tr>\n",
+              "  </tbody>\n",
+              "</table>\n",
+              "</div>"
+            ],
+            "text/plain": [
+              "      UNITID  ... MN_EARN_WNE_P10\n",
+              "1478  163268  ...             NaN\n",
+              "\n",
+              "[1 rows x 9 columns]"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 30
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 170
+        },
+        "id": "Ywc5zU6eJ7tp",
+        "outputId": "a46e5e28-b370-4af5-da02-bb6f19586c47"
+      },
+      "source": [
+        "smaller_df[smaller_df.INSTNM.str.contains(\"University of Maryland-College Park\")]"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/html": [
+              "<div>\n",
+              "<style scoped>\n",
+              "    .dataframe tbody tr th:only-of-type {\n",
+              "        vertical-align: middle;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe tbody tr th {\n",
+              "        vertical-align: top;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe thead th {\n",
+              "        text-align: right;\n",
+              "    }\n",
+              "</style>\n",
+              "<table border=\"1\" class=\"dataframe\">\n",
+              "  <thead>\n",
+              "    <tr style=\"text-align: right;\">\n",
+              "      <th></th>\n",
+              "      <th>UNITID</th>\n",
+              "      <th>INSTNM</th>\n",
+              "      <th>CITY</th>\n",
+              "      <th>STABBR</th>\n",
+              "      <th>ZIP</th>\n",
+              "      <th>ADM_RATE</th>\n",
+              "      <th>UGDS</th>\n",
+              "      <th>TUITIONFEE_IN</th>\n",
+              "      <th>MN_EARN_WNE_P10</th>\n",
+              "    </tr>\n",
+              "  </thead>\n",
+              "  <tbody>\n",
+              "    <tr>\n",
+              "      <th>1479</th>\n",
+              "      <td>163286</td>\n",
+              "      <td>University of Maryland-College Park</td>\n",
+              "      <td>College Park</td>\n",
+              "      <td>MD</td>\n",
+              "      <td>20742</td>\n",
+              "      <td>0.445</td>\n",
+              "      <td>29273.0</td>\n",
+              "      <td>10399.0</td>\n",
+              "      <td>NaN</td>\n",
+              "    </tr>\n",
+              "  </tbody>\n",
+              "</table>\n",
+              "</div>"
+            ],
+            "text/plain": [
+              "      UNITID  ... MN_EARN_WNE_P10\n",
+              "1479  163286  ...             NaN\n",
+              "\n",
+              "[1 rows x 9 columns]"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 32
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 136
+        },
+        "id": "wcVV-t0-KDnQ",
+        "outputId": "bd945885-088a-4557-ca13-856e442cb1b2"
+      },
+      "source": [
+        "smaller_df[smaller_df.INSTNM.str.contains(\"Loyola University Maryland\")]"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/html": [
+              "<div>\n",
+              "<style scoped>\n",
+              "    .dataframe tbody tr th:only-of-type {\n",
+              "        vertical-align: middle;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe tbody tr th {\n",
+              "        vertical-align: top;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe thead th {\n",
+              "        text-align: right;\n",
+              "    }\n",
+              "</style>\n",
+              "<table border=\"1\" class=\"dataframe\">\n",
+              "  <thead>\n",
+              "    <tr style=\"text-align: right;\">\n",
+              "      <th></th>\n",
+              "      <th>UNITID</th>\n",
+              "      <th>INSTNM</th>\n",
+              "      <th>CITY</th>\n",
+              "      <th>STABBR</th>\n",
+              "      <th>ZIP</th>\n",
+              "      <th>ADM_RATE</th>\n",
+              "      <th>UGDS</th>\n",
+              "      <th>TUITIONFEE_IN</th>\n",
+              "      <th>MN_EARN_WNE_P10</th>\n",
+              "    </tr>\n",
+              "  </thead>\n",
+              "  <tbody>\n",
+              "    <tr>\n",
+              "      <th>1475</th>\n",
+              "      <td>163046</td>\n",
+              "      <td>Loyola University Maryland</td>\n",
+              "      <td>Baltimore</td>\n",
+              "      <td>MD</td>\n",
+              "      <td>21210-2699</td>\n",
+              "      <td>0.7528</td>\n",
+              "      <td>3903.0</td>\n",
+              "      <td>47560.0</td>\n",
+              "      <td>NaN</td>\n",
+              "    </tr>\n",
+              "  </tbody>\n",
+              "</table>\n",
+              "</div>"
+            ],
+            "text/plain": [
+              "      UNITID                      INSTNM  ... TUITIONFEE_IN MN_EARN_WNE_P10\n",
+              "1475  163046  Loyola University Maryland  ...       47560.0             NaN\n",
+              "\n",
+              "[1 rows x 9 columns]"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 35
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 136
+        },
+        "id": "4JGsrAcZKNsF",
+        "outputId": "747ec3f5-bdff-494c-a744-90c371dc863e"
+      },
+      "source": [
+        "smaller_df[smaller_df.INSTNM.str.contains(\"Johns Hopkins University\")]"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/html": [
+              "<div>\n",
+              "<style scoped>\n",
+              "    .dataframe tbody tr th:only-of-type {\n",
+              "        vertical-align: middle;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe tbody tr th {\n",
+              "        vertical-align: top;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe thead th {\n",
+              "        text-align: right;\n",
+              "    }\n",
+              "</style>\n",
+              "<table border=\"1\" class=\"dataframe\">\n",
+              "  <thead>\n",
+              "    <tr style=\"text-align: right;\">\n",
+              "      <th></th>\n",
+              "      <th>UNITID</th>\n",
+              "      <th>INSTNM</th>\n",
+              "      <th>CITY</th>\n",
+              "      <th>STABBR</th>\n",
+              "      <th>ZIP</th>\n",
+              "      <th>ADM_RATE</th>\n",
+              "      <th>UGDS</th>\n",
+              "      <th>TUITIONFEE_IN</th>\n",
+              "      <th>MN_EARN_WNE_P10</th>\n",
+              "    </tr>\n",
+              "  </thead>\n",
+              "  <tbody>\n",
+              "    <tr>\n",
+              "      <th>1473</th>\n",
+              "      <td>162928</td>\n",
+              "      <td>Johns Hopkins University</td>\n",
+              "      <td>Baltimore</td>\n",
+              "      <td>MD</td>\n",
+              "      <td>21218-2688</td>\n",
+              "      <td>0.1254</td>\n",
+              "      <td>5663.0</td>\n",
+              "      <td>52170.0</td>\n",
+              "      <td>NaN</td>\n",
+              "    </tr>\n",
+              "  </tbody>\n",
+              "</table>\n",
+              "</div>"
+            ],
+            "text/plain": [
+              "      UNITID                    INSTNM  ... TUITIONFEE_IN MN_EARN_WNE_P10\n",
+              "1473  162928  Johns Hopkins University  ...       52170.0             NaN\n",
+              "\n",
+              "[1 rows x 9 columns]"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 42
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "s0cU2yvWKuHz"
+      },
+      "source": [
+        ""
+      ],
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
