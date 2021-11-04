@@ -57,7 +57,7 @@
 - If we observe this sector all the choosen countries Trade in services (% of GDP) contribution to the economy increased from 2010-2018, Switzerland is having highest percentage of contribution from Trade in services (% of GDP) compared to other countries.
 
 # GDP per capita, PPP (current international $):
-![](https://github.com/rakeshp1/world_development_explorer/blob/main/graphs/GDP.png)
+![](https://github.com/rakeshp1/data690_rakesh/blob/main/Individual%20Project%20final/graphs/GDP.png)
 - From this Pie chart we can observe that Switzerland is having highest percentage of GDP with 37.9% and india is having lowest percentage of GDP with 3.53%.
 # Conclusion:
 - From the above graphs we can conclude the following observations.
